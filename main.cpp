@@ -32,123 +32,122 @@
  Wait for my code review.
  */
 
- struct FloatType
- {
-   float add(float lsh, float rhs);
-   float subtract(float lhs, float rhs);
-   float multiply(float lhs, float rhs);
-   float divide(float lhs, float rhs);
- };
- 
- float FloatType::add(float lhs, float rhs)
- {
-   return lhs + rhs;
- }
+struct FloatType
+{
+    float add(float lsh, float rhs);
+    float subtract(float lhs, float rhs);
+    float multiply(float lhs, float rhs);
+    float divide(float lhs, float rhs);
+};
 
- float FloatType::subtract(float lhs, float rhs)
- {
-   return lhs - rhs;
- }
+float FloatType::add(float lhs, float rhs)
+{
+    return lhs + rhs;
+}
 
- float FloatType::multiply(float lhs, float rhs)
- {
-   return lhs * rhs;
- }
+float FloatType::subtract(float lhs, float rhs)
+{
+    return lhs - rhs;
+}
 
- float FloatType::divide(float lhs, float rhs)
- {
-   return lhs / rhs;
- }
+float FloatType::multiply(float lhs, float rhs)
+{
+    return lhs * rhs;
+}
 
- struct DoubleType
- {
-   double add(double lhs, double rhs);
-   double subtract(double lhs, double rhs);
-   double multiply(double lhs, double rhs);
-   double divide(double lhs, double rhs);
- };
+float FloatType::divide(float lhs, float rhs)
+{
+    return lhs / rhs;
+}
 
- double DoubleType::add(double lhs, double rhs)
- {
-   return lhs + rhs;
-  
- }
+struct DoubleType
+{
+    double add(double lhs, double rhs);
+    double subtract(double lhs, double rhs);
+    double multiply(double lhs, double rhs);
+    double divide(double lhs, double rhs);
+};
 
- double DoubleType::subtract(double lhs, double rhs)
- {
-   return lhs - rhs;
- }
+double DoubleType::add(double lhs, double rhs)
+{
+    return lhs + rhs;
+}
 
- double DoubleType::multiply(double lhs, double rhs)
- {
-   return lhs * rhs;
- }
+double DoubleType::subtract(double lhs, double rhs)
+{
+    return lhs - rhs;
+}
 
- double DoubleType::divide(double lhs, double rhs)
- {
-   return lhs / rhs;
- }
+double DoubleType::multiply(double lhs, double rhs)
+{
+    return lhs * rhs;
+}
 
- struct IntType
- {
-   int add(int lhs, int rhs);
-   int subtract(int lhs, int rhs);
-   int multiply(int lhs, int rhs);
-   int divide(int lhs, int rhs);
- };
+double DoubleType::divide(double lhs, double rhs)
+{
+    return lhs / rhs;
+}
 
- int IntType::add(int lhs, int rhs)
- {
-   return lhs + rhs;
- }
+struct IntType
+{
+    int add(int lhs, int rhs);
+    int subtract(int lhs, int rhs);
+    int multiply(int lhs, int rhs);
+    int divide(int lhs, int rhs);
+};
 
- int IntType::subtract(int lhs, int rhs)
- {
-   return lhs - rhs;
- }
+int IntType::add(int lhs, int rhs)
+{
+    return lhs + rhs;
+}
 
- int IntType::multiply(int lhs, int rhs)
- {
-   return lhs * rhs;
- }
+int IntType::subtract(int lhs, int rhs)
+{
+    return lhs - rhs;
+}
 
- int IntType::divide(int lhs, int rhs)
- {
-   return lhs / rhs;
- }
+int IntType::multiply(int lhs, int rhs)
+{
+    return lhs * rhs;
+}
+
+int IntType::divide(int lhs, int rhs)
+{
+    return lhs / rhs;
+}
 
 #include <iostream>
 int main()
 {
-  FloatType ft;
-  auto fsum = ft.add(3.2f, 23.f );
-  std::cout << "result of ft.add(): " << fsum << std::endl;
-  auto fdiff = ft.subtract(1.24f, 5.43f);
-  std::cout << "result of ft.subtract(): " << fdiff << std::endl;
-  auto fprod = ft.multiply(5.f, 4.6f);
-  std::cout << "result of ft.multiply(): " << fprod << std::endl;
-  auto fdiv = ft.divide(25.32f, 66.5f);
-  std::cout << "result of ft.divide(): " << fdiv << std::endl;
+    FloatType ft;
+    auto fsum = ft.add(3.2f, 23.f );
+    std::cout << "result of ft.add(): " << fsum << std::endl;
+    auto fdiff = ft.subtract(1.24f, 5.43f);
+    std::cout << "result of ft.subtract(): " << fdiff << std::endl;
+    auto fprod = ft.multiply(5.f, 4.6f);
+    std::cout << "result of ft.multiply(): " << fprod << std::endl;
+    auto fdiv = ft.divide(25.32f, 66.5f);
+    std::cout << "result of ft.divide(): " << fdiv << std::endl;
 
-  DoubleType dt;
-  auto dsum = dt.add(1.3, 5.2);
-  std::cout << "result of dt.add(): " << dsum << std::endl;
-  auto ddiff = dt.subtract(345.2, 53.3);
-  std::cout << "result of dt.subrtract(): " << ddiff << std::endl;
-  auto dprod = dt.multiply(234.24, 34.24);
-  std::cout << "result of dt.multiply(): " << dprod << std::endl;
-  auto ddiv = dt.divide(2.3, 53.2);
-  std::cout << "result of dt.divide(): " << ddiv << std::endl;
+    DoubleType dt;
+    auto dsum = dt.add(1.3, 5.2);
+    std::cout << "result of dt.add(): " << dsum << std::endl;
+    auto ddiff = dt.subtract(345.2, 53.3);
+    std::cout << "result of dt.subrtract(): " << ddiff << std::endl;
+    auto dprod = dt.multiply(234.24, 34.24);
+    std::cout << "result of dt.multiply(): " << dprod << std::endl;
+    auto ddiv = dt.divide(2.3, 53.2);
+    std::cout << "result of dt.divide(): " << ddiv << std::endl;
 
-  IntType it;
-  auto isum = it.add(1, 3);
-  std::cout << "result of it.add(): " << isum << std::endl;
-  auto idiff = it.subtract(34, 42);
-  std::cout << "result of it.subtract(): " << idiff << std::endl;
-  auto iprod = it.multiply(56, 3);
-  std::cout << "result of it.multiply(): " << iprod << std::endl;
-  auto idiv = it.divide(4, 6);
-  std::cout << "result of it.divide(): " << idiv << std::endl;
+    IntType it;
+    auto isum = it.add(1, 3);
+    std::cout << "result of it.add(): " << isum << std::endl;
+    auto idiff = it.subtract(34, 42);
+    std::cout << "result of it.subtract(): " << idiff << std::endl;
+    auto iprod = it.multiply(56, 3);
+    std::cout << "result of it.multiply(): " << iprod << std::endl;
+    auto idiv = it.divide(4, 6);
+    std::cout << "result of it.divide(): " << idiv << std::endl;
 
-  std::cout << "good to go!" << std::endl;
+    std::cout << "good to go!" << std::endl;
 }
