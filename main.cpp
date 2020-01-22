@@ -124,11 +124,10 @@ int IntType::divide(int lhs, int rhs)
 {
     if (rhs == 0) 
     {
-        throw std::runtime_error("Error: divide by zero"); FIXME don't throw!! Warn and return something.
-    } else FIXME you don't need an 'else' block if your if() block is returning..
-    {
-        return lhs / rhs;
+        std::cout << "Warning: divide by zero" << std::endl;
+        return 0;
     }
+    return lhs / rhs;
 }
 
 int main()
@@ -160,16 +159,7 @@ int main()
     std::cout << "result of it.subtract(): " << idiff << std::endl;
     auto iprod = it.multiply(56, 3);
     std::cout << "result of it.multiply(): " << iprod << std::endl;
-    try
-    {
-        auto idiv = it.divide(4, 2);
-        std::cout << "result of it.divide(): " << idiv << std::endl;
-    }
-    catch(std::runtime_error& e)
-    {
-        std::cout << "Exception: " << e.what() << std::endl;
-    }
-    
-
+    auto idiv = it.divide(4, 2);
+    std::cout << "result of it.divide(): " << idiv << std::endl;
     std::cout << "good to go!" << std::endl;
 }
