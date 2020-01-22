@@ -31,7 +31,8 @@
 
  Wait for my code review.
  */
-
+#include <iostream>
+#include <stdexcept>
 struct FloatType
 {
     float add(float lsh, float rhs);
@@ -57,7 +58,11 @@ float FloatType::multiply(float lhs, float rhs)
 
 float FloatType::divide(float lhs, float rhs)
 {
-    return lhs / rhs; FIXME warn about floating point division by zero (which is legal)
+    if (rhs == 0.f)
+    {
+        std::cout << "Warning: Floating point division by zero" << std::endl;
+    }
+    return lhs / rhs;
 }
 
 struct DoubleType
@@ -85,7 +90,11 @@ double DoubleType::multiply(double lhs, double rhs)
 
 double DoubleType::divide(double lhs, double rhs)
 {
-    return lhs / rhs; FIXME warn about floating point division by zero (which is legal)
+    if (rhs == 0.)
+    {
+        std::cout << "Warning: Floating point division by zero" << std::endl;
+    }
+    return lhs / rhs;
 }
 
 struct IntType
@@ -113,10 +122,15 @@ int IntType::multiply(int lhs, int rhs)
 
 int IntType::divide(int lhs, int rhs)
 {
-    return lhs / rhs; FIXME: integer division by 0 will crash a program. write something to handle when rhs == 0.  hint: if(...){} else {}
+    if (rhs == 0) 
+    {
+        throw std::runtime_error("Error: divide by zero");
+    } else
+    {
+        return lhs / rhs;
+    }
 }
 
-#include <iostream>
 int main()
 {
     FloatType ft;
@@ -126,7 +140,7 @@ int main()
     std::cout << "result of ft.subtract(): " << fdiff << std::endl;
     auto fprod = ft.multiply(5.f, 4.6f);
     std::cout << "result of ft.multiply(): " << fprod << std::endl;
-    auto fdiv = ft.divide(25.32f, 66.5f);
+    auto fdiv = ft.divide(25.32f, 0.f);
     std::cout << "result of ft.divide(): " << fdiv << std::endl;
 
     DoubleType dt;
@@ -146,8 +160,16 @@ int main()
     std::cout << "result of it.subtract(): " << idiff << std::endl;
     auto iprod = it.multiply(56, 3);
     std::cout << "result of it.multiply(): " << iprod << std::endl;
-    auto idiv = it.divide(4, 6);
-    std::cout << "result of it.divide(): " << idiv << std::endl;
+    try
+    {
+        auto idiv = it.divide(4, 2);
+        std::cout << "result of it.divide(): " << idiv << std::endl;
+    }
+    catch(std::runtime_error& e)
+    {
+        std::cout << "Exception: " << e.what() << std::endl;
+    }
+    
 
     std::cout << "good to go!" << std::endl;
 }
