@@ -124,8 +124,8 @@ int IntType::divide(int lhs, int rhs)
 {
     if (rhs == 0) 
     {
-        throw std::runtime_error("Error: divide by zero");
-    } else
+        throw std::runtime_error("Error: divide by zero"); FIXME don't throw!! Warn and return something.
+    } else FIXME you don't need an 'else' block if your if() block is returning..
     {
         return lhs / rhs;
     }
