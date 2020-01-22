@@ -57,7 +57,7 @@ float FloatType::multiply(float lhs, float rhs)
 
 float FloatType::divide(float lhs, float rhs)
 {
-    return lhs / rhs;
+    return lhs / rhs; FIXME warn about floating point division by zero (which is legal)
 }
 
 struct DoubleType
@@ -85,7 +85,7 @@ double DoubleType::multiply(double lhs, double rhs)
 
 double DoubleType::divide(double lhs, double rhs)
 {
-    return lhs / rhs;
+    return lhs / rhs; FIXME warn about floating point division by zero (which is legal)
 }
 
 struct IntType
@@ -113,7 +113,7 @@ int IntType::multiply(int lhs, int rhs)
 
 int IntType::divide(int lhs, int rhs)
 {
-    return lhs / rhs;
+    return lhs / rhs; FIXME: integer division by 0 will crash a program. write something to handle when rhs == 0.  hint: if(...){} else {}
 }
 
 #include <iostream>
